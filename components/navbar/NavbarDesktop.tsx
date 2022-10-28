@@ -23,23 +23,20 @@ export default function Navbar() {
 
   const colors = Theme.palette;
 
-  const navbarId =
-    router.pathname === '/'
-      ? 'navbar-desktop-gradient'
-      : 'navbar-desktop-solid';
+  console.log(t('my-work'));
 
   return (
     <Stack
       alignItems="center"
+      bgcolor={colors.white.main}
       className="navbar navbar-desktop"
-      id={navbarId}
       justifyContent="center"
       left={0}
       maxHeight="115px"
       paddingTop="30px"
       paddingY="12px"
       top={0}
-      width="100vw"
+      width="100%"
       zIndex={100}
     >
       <Box
@@ -52,52 +49,57 @@ export default function Navbar() {
         paddingX={paddingXDesktop}
         width="100%"
       >
-        <Link href="/">
-          <a>
-            <Typography variant="h2" color="white.main">
-              Inês Cruz
-            </Typography>
-          </a>
-        </Link>
-
-        {router.pathname !== '/' && (
-          <Stack
-            className="user-link"
-            direction="row"
-            justifyContent="space-between"
-            spacing="10px"
-            height="100%"
-            marginTop="4px"
-          >
-            {[
-              { title: t('my-work'), link: '/my-work' },
-              { title: t('about'), link: '/about' },
-              { title: t('contact'), link: '/contact' },
-            ].map(({ title, link }, index) => (
-              <Stack key={index} direction="row" spacing="10px">
-                <Stack direction="column" alignItems="center">
-                  <Link href={link}>
-                    <a>
-                      <Typography color="white.main" variant="h4">
-                        {title}
-                      </Typography>
-                    </a>
-                  </Link>
-
-                  {router.pathname === link && (
-                    <Indicator color={colors.primary.main} size={60} />
-                  )}
-                </Stack>
-
-                {index !== 2 && (
-                  <Typography color="white.main" variant="h4">
-                    |
-                  </Typography>
-                )}
-              </Stack>
-            ))}
-          </Stack>
+        {router.pathname === '/' ? (
+          <Box width="10%" />
+        ) : (
+          <Link href="/">
+            <a>
+              <Typography variant="h2" color="black.main">
+                João Rosa
+              </Typography>
+            </a>
+          </Link>
         )}
+
+        <Stack
+          className="user-link"
+          direction="row"
+          justifyContent="space-between"
+          spacing="10px"
+          height="100%"
+          marginTop="4px"
+        >
+          {[
+            { title: t('my-work'), link: '/my-work' },
+            { title: t('about'), link: '/about' },
+            { title: t('contact'), link: '/contact' },
+          ].map(({ title, link }, index) => (
+            <Stack key={index} direction="row" spacing="10px">
+              <Stack direction="column" alignItems="center">
+                <Link href={link}>
+                  <a>
+                    <Typography
+                      color="black.main"
+                      variant="h4"
+                      sx={{
+                        textDecoration:
+                          router.pathname === link ? 'underline' : 'none',
+                      }}
+                    >
+                      {title}
+                    </Typography>
+                  </a>
+                </Link>
+              </Stack>
+
+              {index !== 2 && (
+                <Typography color="black.main" variant="h4">
+                  |
+                </Typography>
+              )}
+            </Stack>
+          ))}
+        </Stack>
 
         <Stack
           className="user-link"
@@ -107,15 +109,15 @@ export default function Navbar() {
         >
           {[
             {
-              icon: <Instagram color={colors.white.main} size={35} />,
+              icon: <Instagram color={colors.black.main} size={35} />,
               link: 'https://www.instagram.com/ines.cruz.8/?hl=en',
             },
             {
-              icon: <LinkedIn color={colors.white.main} size={35} />,
+              icon: <LinkedIn color={colors.black.main} size={35} />,
               link: 'https://www.linkedin.com/in/in%C3%AAs-cruz-03b9b1133/',
             },
             {
-              icon: <Facebook color={colors.white.main} size={35} />,
+              icon: <Facebook color={colors.black.main} size={35} />,
               link: 'https://www.facebook.com/ines.cruz.77',
             },
           ].map(({ icon, link }, index) => (

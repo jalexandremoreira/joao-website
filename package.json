@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.9",
     "i18next": "^21.10.0",
     "i18next-browser-languagedetector": "^6.1.8",
