@@ -35,7 +35,7 @@ const Theme = createTheme({
   },
   typography: {
     // fontFamily: ['Sarabun', 'sans-serif'].join(','),
-    fontFamily: `'Julius Sans One', sans-serif;`,
+    fontFamily: `'Julius Sans One', sans-serif;, 'Roboto', sans-serif`,
     button: {
       textTransform: 'none',
     },

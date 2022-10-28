@@ -47,58 +47,7 @@ a {
 }
 
 .Roboto {
-  font-family: Roboto, sans-serif;
-}
-
-#navbar-desktop-gradient {
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.58) 100%
-  );
-}
-
-#navbar-desktop-solid {
-  background: #2d2d2d;
-}
-
-#navbar-mobile-gradient-closed {
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.62) 4.69%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-#navbar-mobile-gradient-solid {
-  background: #2d2d2d;
-}
-
-#index-gradient-desktop {
-  background: linear-gradient(
-    270deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.666667) 45.07%,
-    #000000 100%
-  );
-}
-
-#index-gradient-mobile {
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.666667) 32.81%,
-    #000000 100%
-  );
-}
-
-#about-gradient-desktop {
-  background: linear-gradient(90deg, #2d2d2d 57.29%, rgba(45, 45, 45, 0) 100%);
-}
-
-#contact-gradient-desktop {
-  background: linear-gradient(90deg, #2d2d2d 57.29%, rgba(45, 45, 45, 0) 100%);
-  transform: rotate(-180deg);
+  font-family: Roboto, sans-serif !important;
 }
 
 #about-me-title-mobile {

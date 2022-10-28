@@ -80,11 +80,12 @@ const Home: NextPage = () => {
 
           <Box bgcolor="primary.main" width="100%" height="1px" />
 
-          <Typography color="black.main" variant="body1" className="Roboto">
+          <Typography className="Roboto" color="black.main" variant="body1">
             {t('blurb')}
           </Typography>
 
-          <Link href="/docs/CV_Ines_Cruz_Violin.pdf">
+          {/* <Link href="/docs/CV_Ines_Cruz_Violin.pdf"> */}
+          <Link href="#">
             <a
               target="_blank"
               style={{ display: 'flex', justifyContent: 'center' }}

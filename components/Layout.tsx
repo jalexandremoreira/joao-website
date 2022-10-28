@@ -35,12 +35,17 @@ export default function Layout({ pageTitle, children, centered }: Props) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossOrigin="true"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
+          crossOrigin="true"
         />
       </Head>
       {children && children}
