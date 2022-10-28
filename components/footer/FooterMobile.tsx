@@ -42,7 +42,7 @@ const FooterMobile = () => {
         paddingY: '20px',
         paddingX: '10px',
         width: '100%',
-        bgcolor: 'black.800',
+        bgcolor: 'white.main',
       }}
       spacing="5px"
       role="presentation"
@@ -51,17 +51,17 @@ const FooterMobile = () => {
     >
       {[
         {
-          icon: <Instagram color={colors.white.main} size={30} />,
+          icon: <Instagram color={colors.black.main} size={30} />,
           link: 'https://www.instagram.com/joao.rosa.22/',
           name: 'instagram',
         },
         {
-          icon: <LinkedIn color={colors.white.main} size={30} />,
+          icon: <LinkedIn color={colors.black.main} size={30} />,
           link: 'https://www.linkedin.com/in/jo%C3%A3o-rosa-258699228/',
           name: 'linkedin',
         },
         {
-          icon: <Facebook color={colors.white.main} size={30} />,
+          icon: <Facebook color={colors.black.main} size={30} />,
           link: 'https://www.facebook.com/joao.p.rosa.35',
           name: 'facebook',
         },
@@ -71,7 +71,7 @@ const FooterMobile = () => {
             <Button>
               <Stack direction="row" spacing="10px" alignItems="flex-end">
                 {icon}
-                <Typography variant="h6" color="white.main" className="Roboto">
+                <Typography variant="h6" color="black.main" className="Roboto">
                   {name}
                 </Typography>
               </Stack>
@@ -88,20 +88,31 @@ const FooterMobile = () => {
         alignItems="center"
         className="user-link"
         direction="row"
-        justifyContent="space-between"
-        spacing={1}
+        justifyContent="space-evenly"
+        // spacing={1}
         height="100%"
       >
         <Link href="/contact">
           <a>
             <Button>
-              <Typography color="white.main">{t('contact')}</Typography>
+              <Typography color="black.main" variant="caption">
+                {t('contact')}
+              </Typography>
             </Button>
           </a>
         </Link>
-        <Typography color="white.main">|</Typography>
-        <Button onClick={toggleDrawer('bottom', true)}>
-          <Typography color="white.main">{t('links')}</Typography>
+        <Typography color="black.main" variant="caption">
+          |
+        </Typography>
+        <Button
+          onClick={toggleDrawer('bottom', true)}
+          sx={{
+            padding: 0,
+          }}
+        >
+          <Typography color="black.main" variant="caption">
+            {t('links')}
+          </Typography>
         </Button>
         <Drawer
           anchor={'bottom'}
@@ -117,18 +128,20 @@ const FooterMobile = () => {
         >
           <Links />
         </Drawer>
-        <Typography color="white.main">|</Typography>
+        <Typography color="black.main" variant="caption">
+          |
+        </Typography>
         <Button
           onClick={handleLanguage}
-          endIcon={
-            i18n.language === 'en-US' ? (
-              <Portugal size={15} />
-            ) : (
-              <UK size={15} />
-            )
-          }
+          // endIcon={
+          //   i18n.language === 'en-US' ? (
+          //     <Portugal size={15} />
+          //   ) : (
+          //     <UK size={15} />
+          //   )
+          // }
         >
-          <Typography color="white.main">
+          <Typography color="black.main" variant="caption">
             {i18n.language === 'en-US' ? 'português' : 'english'}
           </Typography>
         </Button>

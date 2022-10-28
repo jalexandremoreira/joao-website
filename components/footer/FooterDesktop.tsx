@@ -130,13 +130,13 @@ const FooterDesktop = () => {
         <Typography color="black.main">|</Typography>
         <Button
           onClick={handleLanguage}
-          endIcon={
-            i18n.language === 'en-US' ? (
-              <Portugal size={20} />
-            ) : (
-              <UK size={20} />
-            )
-          }
+          // endIcon={
+          //   i18n.language === 'en-US' ? (
+          //     <Portugal size={20} />
+          //   ) : (
+          //     <UK size={20} />
+          //   )
+          // }
         >
           <Typography color="black.main">
             {i18n.language === 'en-US' ? 'português' : 'english'}
