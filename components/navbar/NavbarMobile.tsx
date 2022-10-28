@@ -18,7 +18,7 @@ import {
 export default function Navbar() {
   const router = useRouter();
   const { paddingXMobile } = useAppDimensions();
-  const { t, i18n } = useTranslation('navbar');
+  const { t } = useTranslation('navbar');
 
   const [open, setOpen] = React.useState(false);
 
@@ -26,37 +26,38 @@ export default function Navbar() {
 
   const handleClose = () => setOpen(false);
 
-  const navbarId =
-    router.pathname === '/'
-      ? 'navbar-mobile-gradient-closed'
-      : 'navbar-mobile-gradient-solid';
-
   const Header = () => (
     <Stack
+      alignItems="center"
       justifyContent="space-between"
       direction="row"
       onClick={() => setOpen(!open)}
       width="100%"
     >
-      <Box
-        onClick={(e) => {
-          console.log(e);
-          e.stopPropagation();
-          handleClose();
-        }}
-      >
-        <Link href="/">
-          <a>
-            <Typography color="white.main" variant="h3">
-              Inês Cruz
-            </Typography>
-          </a>
-        </Link>
-      </Box>
-      {open ? (
-        <Close size={40} color={colors.white.main} />
+      {router.pathname === '/' && !open ? (
+        <Box width="10%" />
       ) : (
-        <MenuHamburger size={40} color={colors.white.main} />
+        <Box
+          onClick={(e) => {
+            console.log(e);
+            e.stopPropagation();
+            handleClose();
+          }}
+        >
+          <Link href="/">
+            <a>
+              <Typography color="black.main" variant="h3">
+                João Rosa
+              </Typography>
+            </a>
+          </Link>
+        </Box>
+      )}
+
+      {open ? (
+        <Close size={40} color={colors.black.main} />
+      ) : (
+        <MenuHamburger size={40} color={colors.black.main} />
       )}
     </Stack>
   );
@@ -64,7 +65,6 @@ export default function Navbar() {
   return (
     <>
       <Box
-        id={navbarId}
         sx={{
           border: 'none',
           paddingX: paddingXMobile,
@@ -81,7 +81,7 @@ export default function Navbar() {
         onClose={handleClose}
         PaperProps={{
           sx: {
-            backgroundColor: colors.black.main,
+            backgroundColor: colors.white.main,
           },
         }}
       >
@@ -96,7 +96,7 @@ export default function Navbar() {
         >
           <Header />
 
-          <Box width="100%" height="1px" bgcolor="white.main" />
+          <Box width="100%" height="1px" bgcolor="black.main" />
 
           <Box onClick={handleClose}>
             <Stack direction="column" alignItems="flex-start" spacing="10px">
@@ -110,7 +110,7 @@ export default function Navbar() {
                     <Button>
                       <Link href={link}>
                         <a>
-                          <Typography color="white.main" variant="h4">
+                          <Typography color="black.main" variant="h4">
                             {title}
                           </Typography>
                         </a>
@@ -124,20 +124,20 @@ export default function Navbar() {
                 ))}
               </Stack>
 
-              <Box width="100%" height="1px" bgcolor="white.main" />
+              <Box width="100%" height="1px" bgcolor="black.main" />
 
               <Stack className="user-link" direction="row" spacing="5px">
                 {[
                   {
-                    icon: <Instagram color={colors.white.main} size={35} />,
+                    icon: <Instagram color={colors.black.main} size={35} />,
                     link: 'https://www.instagram.com/joao.rosa.22/',
                   },
                   {
-                    icon: <LinkedIn color={colors.white.main} size={35} />,
+                    icon: <LinkedIn color={colors.black.main} size={35} />,
                     link: 'https://www.linkedin.com/in/jo%C3%A3o-rosa-258699228/',
                   },
                   {
-                    icon: <Facebook color={colors.white.main} size={35} />,
+                    icon: <Facebook color={colors.black.main} size={35} />,
                     link: 'https://www.facebook.com/joao.p.rosa.35',
                   },
                 ].map(({ icon, link }, index) => (
