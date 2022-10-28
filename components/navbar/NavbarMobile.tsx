@@ -6,14 +6,7 @@ import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 import Theme from '../../app/Theme';
 import useAppDimensions from '../../hooks/useAppDimensions';
-import {
-  Close,
-  Facebook,
-  Instagram,
-  LinkedIn,
-  MenuHamburger,
-  RouteIndicator as Indicator,
-} from '../Icons';
+import { Close, Facebook, Instagram, LinkedIn, MenuHamburger } from '../Icons';
 
 export default function Navbar() {
   const router = useRouter();
@@ -110,16 +103,19 @@ export default function Navbar() {
                     <Button>
                       <Link href={link}>
                         <a>
-                          <Typography color="black.main" variant="h4">
+                          <Typography
+                            color="black.main"
+                            variant="h4"
+                            sx={{
+                              textDecoration:
+                                router.pathname === link ? 'underline' : 'none',
+                            }}
+                          >
                             {title}
                           </Typography>
                         </a>
                       </Link>
                     </Button>
-
-                    {router.pathname === link && (
-                      <Indicator color={colors.primary.main} size={60} />
-                    )}
                   </Stack>
                 ))}
               </Stack>
