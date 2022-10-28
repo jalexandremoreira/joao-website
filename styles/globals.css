@@ -51,10 +51,14 @@ a {
   font-weight: 300 !important;
 }
 
-#about-me-title-mobile {
-  margin-top: -60px;
+#about-me-image-desktop-container {
+  width: 100%;
+  position: unset !important;
 }
 
-#contact-me-title-mobile {
-  margin-top: -80px;
+#about-me-image-desktop {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
 }
