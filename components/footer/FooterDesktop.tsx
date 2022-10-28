@@ -49,13 +49,13 @@ const FooterDesktop = () => {
       onClose={handleClose}
       anchorOrigin={{
         vertical: -150,
-        horizontal: -85,
+        horizontal: -80,
       }}
       PaperProps={{
         sx: {
           // borderTopLeftRadius: '20px',
           // borderTopRightRadius: '20px',
-          bgcolor: 'black.600',
+          bgcolor: 'white.main',
           padding: '10px',
         },
       }}
@@ -63,18 +63,19 @@ const FooterDesktop = () => {
       <Stack>
         {[
           {
-            icon: <Instagram color={colors.white.main} size={30} />,
-            link: 'https://www.instagram.com/ines.cruz.8/?hl=en',
+            icon: <Instagram color={colors.black.main} size={30} />,
+
+            link: 'https://www.instagram.com/joao.rosa.22/',
             name: 'instagram',
           },
           {
-            icon: <LinkedIn color={colors.white.main} size={30} />,
-            link: 'https://www.linkedin.com/in/in%C3%AAs-cruz-03b9b1133/',
+            icon: <LinkedIn color={colors.black.main} size={30} />,
+            link: 'https://www.linkedin.com/in/jo%C3%A3o-rosa-258699228/',
             name: 'linkedin',
           },
           {
-            icon: <Facebook color={colors.white.main} size={30} />,
-            link: 'https://www.facebook.com/ines.cruz.77',
+            icon: <Facebook color={colors.black.main} size={30} />,
+            link: 'https://www.facebook.com/joao.p.rosa.35',
             name: 'facebook',
           },
         ].map(({ icon, link, name }, index) => (
@@ -85,7 +86,7 @@ const FooterDesktop = () => {
                   {icon}
                   <Typography
                     variant="h6"
-                    color="white.main"
+                    color="black.main"
                     className="Roboto"
                   >
                     {name}
@@ -113,20 +114,20 @@ const FooterDesktop = () => {
         <Link href="/contact">
           <a>
             <Button>
-              <Typography color="white.main">{t('contact')}</Typography>
+              <Typography color="black.main">{t('contact')}</Typography>
             </Button>
           </a>
         </Link>
-        <Typography color="white.main">|</Typography>
+        <Typography color="black.main">|</Typography>
         <Button
           aria-describedby={id}
           onClick={handleClick}
           variant="text"
-          endIcon={<ListArrow color={colors.white.main} size={15} />}
+          endIcon={<ListArrow color={colors.black.main} size={15} />}
         >
-          <Typography color="white.main">{t('links')}</Typography>
+          <Typography color="black.main">{t('links')}</Typography>
         </Button>
-        <Typography color="white.main">|</Typography>
+        <Typography color="black.main">|</Typography>
         <Button
           onClick={handleLanguage}
           endIcon={
@@ -137,7 +138,7 @@ const FooterDesktop = () => {
             )
           }
         >
-          <Typography color="white.main">
+          <Typography color="black.main">
             {i18n.language === 'en-US' ? 'português' : 'english'}
           </Typography>
         </Button>

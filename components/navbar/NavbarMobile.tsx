@@ -130,15 +130,15 @@ export default function Navbar() {
                 {[
                   {
                     icon: <Instagram color={colors.white.main} size={35} />,
-                    link: 'https://www.instagram.com/ines.cruz.8/?hl=en',
+                    link: 'https://www.instagram.com/joao.rosa.22/',
                   },
                   {
                     icon: <LinkedIn color={colors.white.main} size={35} />,
-                    link: 'https://www.linkedin.com/in/in%C3%AAs-cruz-03b9b1133/',
+                    link: 'https://www.linkedin.com/in/jo%C3%A3o-rosa-258699228/',
                   },
                   {
                     icon: <Facebook color={colors.white.main} size={35} />,
-                    link: 'https://www.facebook.com/ines.cruz.77',
+                    link: 'https://www.facebook.com/joao.p.rosa.35',
                   },
                 ].map(({ icon, link }, index) => (
                   <Link href={link} key={index}>
