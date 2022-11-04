@@ -3,12 +3,10 @@ import Image from 'next/image';
 import type { NextPage } from 'next';
 import {
   Alert,
-  Box,
   IconButton,
   Snackbar,
   SnackbarOrigin,
   Stack,
-  Typography,
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 

@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 
 import Layout from '../components/Layout';
 // import Theme from '../app/Theme';
-// import useAppDimensions from '../hooks/useAppDimensions';
+import useAppDimensions from '../hooks/useAppDimensions';
 
 const MyWork: NextPage = () => {
-  // const { isMobile } = useAppDimensions();
+  const { isMobile } = useAppDimensions();
   // const colors = Theme.palette;
 
   const { t } = useTranslation('work');
@@ -29,8 +29,8 @@ const MyWork: NextPage = () => {
       >
         <Typography
           alignSelf="center"
-          color="white.main"
-          variant="h2"
+          color="black.main"
+          variant={isMobile ? 'h4' : 'h2'}
           zIndex={2}
         >
           {t('title')}
@@ -40,7 +40,7 @@ const MyWork: NextPage = () => {
           <Typography
             key={index}
             className="Roboto"
-            color="white.main"
+            color="black.main"
             zIndex={2}
           >
             {paragraph}

@@ -45,14 +45,15 @@ export default function Navbar() {
         margin="auto"
         maxWidth={maxWidthDesktop}
         paddingX={paddingXDesktop}
+        height="47px"
         width="100%"
       >
         {router.pathname === '/' ? (
-          <Box width="10%" />
+          <Box minWidth="212px" />
         ) : (
           <Link href="/">
             <a>
-              <Typography variant="h2" color="black.main">
+              <Typography minWidth="212px" variant="h2" color="black.main">
                 João Rosa
               </Typography>
             </a>
@@ -60,6 +61,7 @@ export default function Navbar() {
         )}
 
         <Stack
+          alignItems="center"
           className="user-link"
           direction="row"
           justifyContent="space-between"
@@ -78,7 +80,7 @@ export default function Navbar() {
                   <a>
                     <Typography
                       color="black.main"
-                      variant="h4"
+                      variant="h5"
                       sx={{
                         textDecoration:
                           router.pathname === link ? 'underline' : 'none',
@@ -91,7 +93,7 @@ export default function Navbar() {
               </Stack>
 
               {index !== 2 && (
-                <Typography color="black.main" variant="h4">
+                <Typography color="black.main" variant="h5">
                   |
                 </Typography>
               )}
@@ -99,30 +101,32 @@ export default function Navbar() {
           ))}
         </Stack>
 
-        <Stack
-          className="user-link"
-          direction="row"
-          justifyContent="space-between"
-          spacing={1}
-        >
-          {[
-            {
-              icon: <Instagram color={colors.black.main} size={35} />,
-              link: 'https://www.instagram.com/joao.rosa.22/',
-            },
-            {
-              icon: <LinkedIn color={colors.black.main} size={35} />,
-              link: 'https://www.linkedin.com/in/jo%C3%A3o-rosa-258699228/',
-            },
-            {
-              icon: <Facebook color={colors.black.main} size={35} />,
-              link: 'https://www.facebook.com/joao.p.rosa.35',
-            },
-          ].map(({ icon, link }, index) => (
-            <Link href={link} key={index}>
-              <a target="_blank">{icon}</a>
-            </Link>
-          ))}
+        <Stack minWidth="212px" alignItems="flex-end" justifyContent="center">
+          <Stack
+            className="user-link"
+            direction="row"
+            justifyContent="space-between"
+            spacing={1}
+          >
+            {[
+              {
+                icon: <Instagram color={colors.black.main} size={35} />,
+                link: 'https://www.instagram.com/joao.rosa.22/',
+              },
+              {
+                icon: <LinkedIn color={colors.black.main} size={35} />,
+                link: 'https://www.linkedin.com/in/jo%C3%A3o-rosa-258699228/',
+              },
+              {
+                icon: <Facebook color={colors.black.main} size={35} />,
+                link: 'https://www.facebook.com/joao.p.rosa.35',
+              },
+            ].map(({ icon, link }, index) => (
+              <Link href={link} key={index}>
+                <a target="_blank">{icon}</a>
+              </Link>
+            ))}
+          </Stack>
         </Stack>
       </Box>
     </Stack>
