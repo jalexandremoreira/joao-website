@@ -62,3 +62,7 @@ a {
   position: relative !important;
   height: unset !important;
 }
+
+#mobile-about-scrollbar {
+  scroll-margin-top: 50px !important;
+}

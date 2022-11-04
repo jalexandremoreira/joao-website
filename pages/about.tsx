@@ -1,17 +1,18 @@
 import React from 'react';
 import Image from 'next/image';
 import type { NextPage } from 'next';
-import { Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 import desktopImage from '../public/images/about-me-desktop.png';
+import mobileImage from '../public/images/about-me-mobile.png';
 import Layout from '../components/Layout';
 import useAppDimensions from '../hooks/useAppDimensions';
 import useWindowSize from '../hooks/useWindowSize';
 
 const About: NextPage = () => {
   const { width } = useWindowSize();
-  const { isMobile } = useAppDimensions();
+  const { isMobile, paddingXMobile } = useAppDimensions();
   const { t } = useTranslation('about');
 
   const about: string[] = t('body', { returnObjects: true });
@@ -22,60 +23,77 @@ const About: NextPage = () => {
     width > widthLimitA ? '546px' : width > widthLimitB ? '434px' : '344px'; // 344
   const desktopImageHeight =
     width > widthLimitA ? '922px' : width > widthLimitB ? '732px' : '580px'; //580
+  const stackDirection = width > 900 ? 'row' : 'column';
+  const paragraphWidth = '100%';
+
+  // 1.6144
 
   if (isMobile) {
     return (
       <Layout pageTitle={t('page-title')} centered>
         <Stack
           flex={1}
-          id="about-container"
+          id="mobile-about-scrollbar"
           justifyContent="flex-start"
           height="100%"
           direction="column"
           spacing="10px"
           width="100%"
         >
-          {/* <Box
+          <Box
             zIndex={0}
             style={{
               filter: 'blur(0.4px)',
-              height: '297px',
-              width: '100vw',
+              height: width * 1.6144,
+              width: width,
             }}
-            marginX="-15px"
-            position="relative"
+            // marginX="-15px"
+            position="fixed"
             top={0}
+            left={0}
           >
             <Image
-              src={aboutMobile.src}
+              src={mobileImage.src}
               alt="about-page-background"
               layout="fill"
               objectFit="contain"
               loading="lazy"
             />
-          </Box> */}
+          </Box>
 
-          <Stack alignItems="center" id="about-me-title-mobile" width="100%">
+          <Box height={width * 1.2} />
+
+          <Stack
+            alignItems="center"
+            bgcolor="white.main"
+            borderRadius="30px"
+            id="about-me-title-mobile"
+            paddingY="20px"
+            paddingX={paddingXMobile}
+            spacing="25px"
+            width="100%"
+            zIndex={1}
+          >
             <Typography
               alignSelf="center"
               color="black.main"
-              variant="h2"
+              variant="h4"
               zIndex={2}
             >
               {t('title')}
             </Typography>
-          </Stack>
 
-          {about.map((paragraph, index) => (
-            <Typography
-              key={index}
-              className="Roboto"
-              color="black.main"
-              zIndex={2}
-            >
-              {paragraph}
-            </Typography>
-          ))}
+            {about.map((paragraph, index) => (
+              <Typography
+                key={index}
+                className="Roboto"
+                color="black.main"
+                zIndex={2}
+              >
+                {paragraph}
+              </Typography>
+            ))}
+          </Stack>
         </Stack>
       </Layout>
     );
@@ -83,7 +101,7 @@ const About: NextPage = () => {
 
   return (
     <Layout pageTitle="About me" centered>
-      <Stack direction="row" spacing={8}>
+      <Stack direction={stackDirection} spacing={8}>
         <Image
           width={desktopImageWidth}
           height={desktopImageHeight}
@@ -99,7 +117,7 @@ const About: NextPage = () => {
           justifyContent="center"
           height="100%"
           direction="column"
-          maxWidth="500px"
+          maxWidth={paragraphWidth}
           spacing="20px"
           width="100%"
         >

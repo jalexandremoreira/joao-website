@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { Stack } from '@mui/material';
+import { useRouter } from 'next/router';
 
 import useAppDimensions from '../hooks/useAppDimensions';
 
@@ -13,6 +14,10 @@ interface Props {
 export default function Layout({ pageTitle, children, centered }: Props) {
   const { isMobile, maxWidthDesktop, paddingXDesktop, paddingXMobile } =
     useAppDimensions();
+  const router = useRouter();
+
+  const paddingXMobileAdjusted =
+    router.pathname === '/about' ? '0px' : paddingXMobile;
 
   return (
     <Stack
@@ -22,9 +27,10 @@ export default function Layout({ pageTitle, children, centered }: Props) {
       direction="column"
       display="flex"
       flexGrow={1}
+      id="layout-container"
       justifyContent={centered ? 'center' : 'flex-start'}
       maxWidth={isMobile ? '100vw' : maxWidthDesktop}
-      paddingX={isMobile ? paddingXMobile : paddingXDesktop}
+      paddingX={isMobile ? paddingXMobileAdjusted : paddingXDesktop}
       width="100%"
       sx={{
         overflowY: 'scroll',

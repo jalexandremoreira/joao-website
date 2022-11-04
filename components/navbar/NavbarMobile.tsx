@@ -19,6 +19,8 @@ export default function Navbar() {
 
   const handleClose = () => setOpen(false);
 
+  const bgColor = router.pathname !== '/about' ? 'white.main' : 'transparent';
+
   const Header = () => (
     <Stack
       alignItems="center"
@@ -64,6 +66,7 @@ export default function Navbar() {
           paddingTop: '10px',
           width: '100%',
         }}
+        bgcolor={bgColor}
       >
         <Header />
       </Box>
