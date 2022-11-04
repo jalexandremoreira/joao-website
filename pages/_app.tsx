@@ -37,8 +37,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     setScrollPosition(position);
   };
 
-  // console.log(scrollPosition);
-
   //fix for "Unhandled Runtime Error Error: Hydration failed"
   if (!mounted) return null;
 

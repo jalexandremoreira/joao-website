@@ -20,7 +20,7 @@ const Theme = createTheme({
       main: '#EA665D',
       //   400: '#4E8EBF',
     },
-    white: { main: '#FFFFF9', 100: '#F8F4E2' },
+    white: { 50: '#FFFFF9', main: '#F8F4E2' },
     black: { main: '#275048', 800: '#2D2D2D', 700: '#393939', 600: '#4E4E4E' },
     success: { main: '#1FBD68' },
     error: { main: '#D53726' },

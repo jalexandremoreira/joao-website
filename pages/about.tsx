@@ -26,8 +26,6 @@ const About: NextPage = () => {
   const stackDirection = width > 900 ? 'row' : 'column';
   const paragraphWidth = '100%';
 
-  // 1.6144
-
   if (isMobile) {
     return (
       <Layout pageTitle={t('page-title')} centered>

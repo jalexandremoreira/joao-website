@@ -12,6 +12,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.9",
+    "@mui/styles": "^5.10.10",
     "emailjs-com": "^3.2.0",
     "formik": "^2.2.9",
     "i18next": "^21.10.0",

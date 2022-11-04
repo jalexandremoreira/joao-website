@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, Stack, TextField, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { send } from 'emailjs-com';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -15,6 +16,12 @@ interface Props {
   setErrorMessage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+const useStyles = makeStyles(() => ({
+  noBorder: {
+    border: 'none',
+  },
+}));
+
 export default function ContactCard({
   setMessage,
   setErrorMessage,
@@ -22,6 +29,7 @@ export default function ContactCard({
 }: Props) {
   const { isMobile } = useAppDimensions();
   const { t, i18n } = useTranslation('contact');
+  const classes = useStyles();
 
   const validationSchema = yup.object({
     reply_to: yup
@@ -37,17 +45,27 @@ export default function ContactCard({
   const inputProps = {
     sx: {
       // @ts-ignore: Unreachable code error
-      bgcolor: colors.black[600],
+      bgcolor: colors.white[50],
       // @ts-ignore: Unreachable code error
-      color: colors.white[200],
+      color: colors.black.main,
       fontFamily: 'Roboto',
+      border: 'none',
     },
+    classes: { notchedOutline: classes.noBorder },
   };
 
   return (
-    <Stack direction="column" spacing={isMobile ? '10px' : '20px'}>
+    <Stack direction="column" spacing={isMobile ? '30px' : '40px'} width="100%">
+      <Typography
+        alignSelf="center"
+        color="black.main"
+        variant={isMobile ? 'h4' : 'h2'}
+      >
+        {t('page-title')}
+      </Typography>
+
       <Stack
-        bgcolor="black.700"
+        bgcolor="white.50"
         borderRadius="5px"
         direction="column"
         padding={isMobile ? '15px' : '20px'}
@@ -55,32 +73,23 @@ export default function ContactCard({
         zIndex={5}
       >
         <Stack direction="row" spacing={isMobile ? '10px' : '15px'}>
-          <Email color={colors.white.main} size={isMobile ? 25 : 35} />
-          <Typography color="white.main" variant={isMobile ? 'h5' : 'h4'}>
+          <Email color={colors.black.main} size={isMobile ? 25 : 35} />
+          <Typography color="black.main" variant={isMobile ? 'h5' : 'h4'}>
             violino.ines95@gmail.com
           </Typography>
         </Stack>
 
         <Stack direction="row" spacing={isMobile ? '10px' : '15px'}>
-          <Phone color={colors.white.main} size={isMobile ? 25 : 35} />
-          <Typography color="white.main" variant={isMobile ? 'h5' : 'h4'}>
+          <Phone color={colors.black.main} size={isMobile ? 25 : 35} />
+          <Typography color="black.main" variant={isMobile ? 'h5' : 'h4'}>
             +46 072 831 07 29
           </Typography>
         </Stack>
       </Stack>
 
-      <Stack
-        bgcolor="black.700"
-        borderRadius="5px"
-        direction="column"
-        padding={isMobile ? '15px' : '20px'}
-        spacing={isMobile ? '10px' : '20px'}
-        zIndex={5}
-      >
-        <Typography color="white.200" variant={isMobile ? 'h5' : 'h4'}>
-          {t('form-title')}
-        </Typography>
+      <Box bgcolor="primary.main" width="100%" height="1px" />
 
+      <Stack direction="column" spacing={isMobile ? '10px' : '20px'} zIndex={5}>
         <Formik
           initialValues={{
             from_name: '',

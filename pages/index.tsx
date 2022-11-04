@@ -52,32 +52,6 @@ const Home: NextPage = () => {
             {t('title')}
           </Typography>
 
-          {/* <Stack direction="row" spacing="5px">
-            {links.map(({ title, link }, index) => (
-              <Stack key={index} direction="row" spacing="5px">
-                <Link href={`/${link}`}>
-                  <a>
-                    <Typography
-                      color="black.main"
-                      variant={isMobile ? 'h5' : 'h4'}
-                      sx={{ textDecoration: 'underline' }}
-                    >
-                      {title}
-                    </Typography>
-                  </a>
-                </Link>
-                {index !== 2 && (
-                  <Typography
-                    color="black.main"
-                    variant={isMobile ? 'h5' : 'h4'}
-                  >
-                    |
-                  </Typography>
-                )}
-              </Stack>
-            ))} 
-          </Stack>*/}
-
           <Box bgcolor="primary.main" width="100%" height="1px" />
 
           <Typography className="Roboto" color="black.main" variant="body1">

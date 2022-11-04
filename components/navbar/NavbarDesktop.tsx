@@ -23,8 +23,6 @@ export default function Navbar() {
 
   const colors = Theme.palette;
 
-  console.log(t('my-work'));
-
   return (
     <Stack
       alignItems="center"
