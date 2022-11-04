@@ -64,13 +64,16 @@ const About: NextPage = () => {
           <Stack
             alignItems="center"
             bgcolor="white.main"
-            borderRadius="30px"
             id="about-me-title-mobile"
             paddingY="20px"
             paddingX={paddingXMobile}
             spacing="25px"
             width="100%"
             zIndex={1}
+            sx={{
+              borderTopLeftRadius: '30px',
+              borderTopRightRadius: '30px',
+            }}
           >
             <Typography
               alignSelf="center"

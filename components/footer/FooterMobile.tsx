@@ -86,6 +86,7 @@ const FooterMobile = () => {
     <Stack alignItems="center" direction="column" paddingY="15px" zIndex={5}>
       <Stack
         alignItems="center"
+        bgcolor="white.main"
         className="user-link"
         direction="row"
         justifyContent="space-evenly"
