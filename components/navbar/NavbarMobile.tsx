@@ -8,18 +8,28 @@ import Theme from '../../app/Theme';
 import useAppDimensions from '../../hooks/useAppDimensions';
 import { Close, Facebook, Instagram, LinkedIn, MenuHamburger } from '../Icons';
 
-export default function Navbar() {
+export default function Navbar({ scrollPosition }: { scrollPosition: number }) {
   const router = useRouter();
   const { paddingXMobile } = useAppDimensions();
   const { t } = useTranslation('navbar');
 
   const [open, setOpen] = React.useState(false);
+  const [bgColor, setBgColor] = React.useState('white.main');
 
   const colors = Theme.palette;
 
   const handleClose = () => setOpen(false);
 
-  const bgColor = router.pathname !== '/about' ? 'white.main' : 'transparent';
+  React.useEffect(() => {
+    const bgColorValue =
+      router.pathname === '/about'
+        ? scrollPosition > 493
+          ? 'white.main'
+          : 'transparent'
+        : 'white.main';
+
+    setBgColor(bgColorValue);
+  }, [router, scrollPosition]);
 
   const Header = () => (
     <Stack
@@ -65,6 +75,7 @@ export default function Navbar() {
           paddingX: paddingXMobile,
           paddingTop: '10px',
           width: '100%',
+          transition: 'background-color 0.3s ease',
         }}
         bgcolor={bgColor}
       >

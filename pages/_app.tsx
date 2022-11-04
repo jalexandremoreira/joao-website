@@ -18,10 +18,26 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   const [mounted, setMounted] = React.useState(false);
+  const [scrollPosition, setScrollPosition] = React.useState(0);
 
   React.useEffect(() => setMounted(true), []);
 
+  React.useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const { white } = Theme.palette;
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  // console.log(scrollPosition);
 
   //fix for "Unhandled Runtime Error Error: Hydration failed"
   if (!mounted) return null;
@@ -56,7 +72,11 @@ function MyApp({ Component, pageProps }: AppProps) {
               zIndex: '1000',
             }}
           >
-            {isMobile ? <NavbarMobile /> : <NavbarDesktop />}
+            {isMobile ? (
+              <NavbarMobile scrollPosition={scrollPosition} />
+            ) : (
+              <NavbarDesktop />
+            )}
           </Stack>
           <Component {...pageProps} />
           {isMobile ? <FooterMobile /> : <FooterDesktop />}
