@@ -122,12 +122,7 @@ const About: NextPage = () => {
           spacing="20px"
           width="100%"
         >
-          <Typography
-            alignSelf="center"
-            color="black.main"
-            variant="h2"
-            zIndex={2}
-          >
+          <Typography alignSelf="center" color="black.main" variant="h2">
             {t('title')}
           </Typography>
 

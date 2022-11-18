@@ -3,7 +3,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from '@mui/material/styles';
 import { Stack } from '@mui/material';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 import '../localization/i18n';
 import FooterDesktop from '../components/footer/FooterDesktop';
@@ -12,10 +12,12 @@ import NavbarDesktop from '../components/navbar/NavbarDesktop';
 import NavbarMobile from '../components/navbar/NavbarMobile';
 import Theme from '../app/Theme';
 import useAppDimensions from '../hooks/useAppDimensions';
+import useWindowSize from '../hooks/useWindowSize';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const { width } = useWindowSize();
   const { isMobile } = useAppDimensions();
-  const router = useRouter();
+  // const router = useRouter();
 
   const [mounted, setMounted] = React.useState(false);
   const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -70,7 +72,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               zIndex: '1000',
             }}
           >
-            {isMobile ? (
+            {isMobile || width < 600 ? (
               <NavbarMobile scrollPosition={scrollPosition} />
             ) : (
               <NavbarDesktop />

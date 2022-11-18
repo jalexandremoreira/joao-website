@@ -7,21 +7,25 @@ import { useTranslation } from 'react-i18next';
 // import NavbarMenu from './NavbarMenu';
 import Theme from '../../app/Theme';
 import useAppDimensions from '../../hooks/useAppDimensions';
-import {
-  Instagram,
-  RouteIndicator as Indicator,
-  LinkedIn,
-  Facebook,
-} from '../Icons';
+import { Instagram, LinkedIn, Facebook } from '../Icons';
+import useWindowSize from '../../hooks/useWindowSize';
+
 // import { LogoLarge } from '../Logos';
 // import { Settings, MenuHamburger } from '../Icons';
 
 export default function Navbar() {
+  const { width } = useWindowSize();
+
   const { maxWidthDesktop, paddingXDesktop } = useAppDimensions();
   const router = useRouter();
-  const { t, i18n } = useTranslation('navbar');
+  const { t } = useTranslation('navbar');
 
   const colors = Theme.palette;
+
+  const sidesMinWidth = width < 792 ? 0 : '212px';
+  const titleSize = width < 830 ? (width < 792 ? 'h4' : 'h3') : 'h2';
+  const linksSize = width < 820 ? 'h6' : 'h5';
+  const iconsSize = width < 792 ? 28 : 35;
 
   return (
     <Stack
@@ -49,11 +53,15 @@ export default function Navbar() {
         width="100%"
       >
         {router.pathname === '/' ? (
-          <Box minWidth="212px" />
+          <Box minWidth={sidesMinWidth} />
         ) : (
           <Link href="/">
             <a>
-              <Typography minWidth="212px" variant="h2" color="black.main">
+              <Typography
+                minWidth={sidesMinWidth}
+                variant={titleSize}
+                color="black.main"
+              >
                 João Rosa
               </Typography>
             </a>
@@ -80,7 +88,7 @@ export default function Navbar() {
                   <a>
                     <Typography
                       color="black.main"
-                      variant="h5"
+                      variant={linksSize}
                       sx={{
                         textDecoration:
                           router.pathname === link ? 'underline' : 'none',
@@ -101,7 +109,11 @@ export default function Navbar() {
           ))}
         </Stack>
 
-        <Stack minWidth="212px" alignItems="flex-end" justifyContent="center">
+        <Stack
+          minWidth={sidesMinWidth}
+          alignItems="flex-end"
+          justifyContent="center"
+        >
           <Stack
             className="user-link"
             direction="row"
@@ -110,15 +122,15 @@ export default function Navbar() {
           >
             {[
               {
-                icon: <Instagram color={colors.black.main} size={35} />,
+                icon: <Instagram color={colors.black.main} size={iconsSize} />,
                 link: 'https://www.instagram.com/joao.rosa.22/',
               },
               {
-                icon: <LinkedIn color={colors.black.main} size={35} />,
+                icon: <LinkedIn color={colors.black.main} size={iconsSize} />,
                 link: 'https://www.linkedin.com/in/jo%C3%A3o-rosa-258699228/',
               },
               {
-                icon: <Facebook color={colors.black.main} size={35} />,
+                icon: <Facebook color={colors.black.main} size={iconsSize} />,
                 link: 'https://www.facebook.com/joao.p.rosa.35',
               },
             ].map(({ icon, link }, index) => (
